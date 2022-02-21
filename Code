@@ -1,0 +1,50 @@
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+{
+int n,i,k,flag=0;
+char vari[15],typ[15],b[15],c;
+printf(&quot;Enter the number of variables:&quot;);
+scanf(&quot; %d&quot;,&amp;n);
+for(i=0;i&lt;n;i++)
+{
+printf(&quot;Enter the variable[%d]:&quot;,i);
+scanf(&quot; %c&quot;,&amp;vari[i]);
+printf(&quot;Enter the variable-type[%d](float-f,int-i):&quot;,i);
+scanf(&quot; %c&quot;,&amp;typ[i]);
+if(typ[i]==&#39;f&#39;)
+flag=1;
+}
+printf(&quot;Enter the Expression(end with $):&quot;);
+i=0;
+getchar();
+while((c=getchar())!=&#39;$&#39;)
+{
+b[i]=c;
+i++; }
+
+k=i;
+for(i=0;i&lt;k;i++)
+{
+if(b[i]==&#39;/&#39;)
+{
+flag=1;
+break; } }
+for(i=0;i&lt;n;i++)
+{
+if(b[0]==vari[i])
+{
+if(flag==1)
+{
+if(typ[i]==&#39;f&#39;)
+{ printf(&quot;\nthe datatype is correctly defined..!\n&quot;);
+break; }
+else
+{ printf(&quot;Identifier %c must be a float type..!\n&quot;,vari[i]);
+break; } }
+else
+{ printf(&quot;\nthe datatype is correctly defined..!\n&quot;);
+break; } }
+}
+return 0;
+}
